@@ -21,12 +21,17 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
-	// mustache 템플릿 추가
-	implementation 'org.springframework.boot:spring-boot-starter-mustache'
+
 	implementation 'org.springframework:spring-webmvc'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	// Spring JPA
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.6.6'
+
+	// MySQL
+	implementation 'mysql:mysql-connector-java:8.0.21'
 }
 
 tasks.named('test') {
