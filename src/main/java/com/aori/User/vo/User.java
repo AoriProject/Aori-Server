@@ -1,5 +1,6 @@
 package com.aori.User.vo;
 
+import com.aori.User.dto.UserJoinDto;
 import lombok.*;
 
 import javax.persistence.*;
@@ -9,24 +10,26 @@ import javax.persistence.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Builder
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
     private String username;
     private String sex;
     private String testLink;
     private String resultLink;
+    private String mbti;
 
-    @Builder
-    public User instance(Long userId, String username, String sex, String testLink, String resultLink) {
-        return new UserBuilder()
-                .userId(userId)
-                .username(username)
-                .sex(sex)
-                .testLink(testLink)
-                .resultLink(resultLink)
+    public static User join(UserJoinDto userJoinDto) {
+        return User.builder()
+                .userId    (userJoinDto.getUserId     ())
+                .username  (userJoinDto.getUsername   ())
+                .sex       (userJoinDto.getSex        ())
+                .testLink  (userJoinDto.getTest_link  ())
+                .resultLink(userJoinDto.getResult_link())
+                .mbti      (userJoinDto.getMbti       ())
                 .build();
     }
 }
