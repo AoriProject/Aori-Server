@@ -1,5 +1,6 @@
 package com.aori.Test.controller;
 
+import com.aori.Test.dto.TestQuestionDto;
 import com.aori.Test.service.TestService;
 import com.aori.Test.vo.Test;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +19,7 @@ public class TestController {
 
     @GetMapping("/{page}")
     public ResponseEntity<?> getQuestions(@PathVariable("page") int page) {
-        List<Test> question = testService.getQuestion(page);
+        TestQuestionDto question = testService.getQuestion(page);
         return new ResponseEntity<>(question, HttpStatus.OK);
     }
 }
