@@ -1,6 +1,7 @@
 package com.aori.User.service.impl;
 
-import com.aori.User.dto.UserJoinDto;
+import com.aori.User.dto.UserJoinRequest;
+import com.aori.User.dto.UserJoinResponse;
 import com.aori.User.repository.UserRepository;
 import com.aori.User.service.UserService;
 import com.aori.User.vo.User;
@@ -14,8 +15,10 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
 
     @Override
-    public Long save(UserJoinDto userJoinDto) {
-        User user = userRepository.save(User.join(userJoinDto));
-        return user.getUserId();
+    public UserJoinResponse save(UserJoinRequest request) {
+        User user = userRepository.save(User.mapper(request));
+        UserJoinResponse response = UserJoinResponse.mapper(user);
+        userRepository.save(User.linkUpdate(user, response));
+        return response;
     }
 }

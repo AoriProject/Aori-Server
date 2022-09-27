@@ -1,8 +1,9 @@
 package com.aori.User.service;
 
-import com.aori.User.dto.UserJoinDto;
+import com.aori.User.dto.UserJoinRequest;
+import com.aori.User.dto.UserJoinResponse;
 
 public interface UserService {
 
-    Long save(UserJoinDto userJoinDto);
+    UserJoinResponse save(UserJoinRequest request);
 }

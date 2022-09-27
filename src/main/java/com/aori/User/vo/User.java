@@ -1,6 +1,7 @@
 package com.aori.User.vo;
 
-import com.aori.User.dto.UserJoinDto;
+import com.aori.User.dto.UserJoinRequest;
+import com.aori.User.dto.UserJoinResponse;
 import lombok.*;
 
 import javax.persistence.*;
@@ -22,14 +23,17 @@ public class User {
     private String resultLink;
     private String mbti;
 
-    public static User join(UserJoinDto userJoinDto) {
+    public static User mapper(UserJoinRequest request) {
         return User.builder()
-                .userId    (userJoinDto.getUserId     ())
-                .username  (userJoinDto.getUsername   ())
-                .sex       (userJoinDto.getSex        ())
-                .testLink  (userJoinDto.getTest_link  ())
-                .resultLink(userJoinDto.getResult_link())
-                .mbti      (userJoinDto.getMbti       ())
+                .username  (request.getUsername())
+                .sex       (request.getSex     ())
+                .mbti      (request.getMbti    ())
                 .build();
+    }
+
+    public static User linkUpdate(User user, UserJoinResponse response) {
+        user.setTestLink(response.getTest_link());
+        user.setResultLink(response.getResult_link());
+        return user;
     }
 }
