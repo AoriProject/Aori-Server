@@ -1,5 +1,6 @@
 package com.aori.Test.service.impl;
 
+import com.aori.Test.dto.TestQuestionDto;
 import com.aori.Test.repository.TestRepository;
 import com.aori.Test.service.TestService;
 import com.aori.Test.vo.Test;
@@ -15,7 +16,8 @@ public class TestServiceImpl implements TestService {
     private final TestRepository testRepository;
 
     @Override
-    public List<Test> getQuestion(int page) {
-        return testRepository.getQuestions(page);
+    public TestQuestionDto getQuestion(int page) {
+        List<Test> questions = testRepository.getQuestions(page);
+        return TestQuestionDto.mapper(questions);
     }
 }
