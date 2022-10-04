@@ -3,11 +3,11 @@ package com.aori.TestResult.vo;
 import lombok.*;
 
 @NoArgsConstructor
-@RequiredArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @ToString
+@Builder
 public class Celebrity {
     private @NonNull int id;
     private @NonNull String name;

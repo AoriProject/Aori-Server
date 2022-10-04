@@ -3,7 +3,6 @@ package com.aori.TestResult.vo;
 import lombok.*;
 
 @NoArgsConstructor
-@RequiredArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
