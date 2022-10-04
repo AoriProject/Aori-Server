@@ -1,6 +1,10 @@
+# hb
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/aori?serverTimezone=Asia/Seoul
     username: root
     password: root
+# sh
+#    username: ssafy
+#    password: ssafy
