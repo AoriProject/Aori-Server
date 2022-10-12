@@ -32,6 +32,10 @@ dependencies {
 
 	// MySQL
 	implementation 'mysql:mysql-connector-java:8.0.21'
+
+	// GSON - JSON Parser
+	implementation 'com.google.code.gson:gson:2.8.5'
+
 }
 
 tasks.named('test') {
